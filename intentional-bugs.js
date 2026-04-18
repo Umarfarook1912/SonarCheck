@@ -1,21 +1,15 @@
 function hasAccess(userRole) {
-    // Intentional bug for Sonar test: assignment used in condition.
-    if (userRole = "admin") {
-        return true;
-    }
-    return false;
+    return userRole === "admin";
 }
 
 function isNumberValid(input) {
-    // Intentional bug for Sonar test: NaN is never equal to itself.
-    if (input === NaN) {
-        return false;
-    }
-    return true;
+    return !Number.isNaN(input);
 }
 
 function calculateAverage(total, count) {
-    // Intentional bug for Sonar test: division by zero when count is 0.
+    if (count === 0) {
+        return 0;
+    }
     return total / count;
 }
 
